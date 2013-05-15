@@ -28,8 +28,8 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
-BRANCH=${BRANCH:-v1-train}
+GITREPO=${GITREPO:-"git://github.com/ymkuo1108/b2g-manifest"}
+BRANCH=${BRANCH:-master}
 
 GIT_TEMP_REPO="tmp_manifest_repo"
 if [ -n "$2" ]; then
@@ -112,6 +112,8 @@ case "$1" in
 	echo - nexus-s-4g
 	echo - otoro
 	echo - unagi
+	echo - nigili
+	echo - wasabi
 	echo - inari
 	echo - keon
 	echo - peak
