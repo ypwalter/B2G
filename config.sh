@@ -74,7 +74,7 @@ case "$1" in
 	repo_sync $1
 	;;
 
-"otoro"|"unagi"|"keon"|"inari"|"leo"|"hamachi"|"peak"|"nigili"|"wasabi")
+"otoro"|"unagi"|"keon"|"inari"|"leo"|"hamachi"|"peak"|"nigili"|"wasabi"|"anigi")
 	echo DEVICE=$1 >> .tmp-config &&
 	repo_sync $1
 	;;
@@ -114,6 +114,7 @@ case "$1" in
 	echo - unagi
 	echo - nigili
 	echo - wasabi
+	echo - anigi
 	echo - inari
 	echo - keon
 	echo - peak
