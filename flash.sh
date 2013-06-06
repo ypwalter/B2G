@@ -66,7 +66,14 @@ fastboot_flash_image()
 
 flash_fastboot()
 {
-	run_adb reboot bootloader ;
+	case $DEVICE in
+	"helix")
+		run_adb shell "reboot oem-1"
+		;;
+	*)
+		run_adb reboot bootloader
+		;;
+	esac
 	run_fastboot devices &&
 	( [ "$1" = "nounlock" ] || run_fastboot oem unlock || true )
 
@@ -81,8 +88,10 @@ flash_fastboot()
 		;;
 
 	*)
-		run_fastboot erase cache &&
-		run_fastboot erase userdata &&
+		if [[ "$DEVICE" != "helix" ]]; then
+			run_fastboot erase cache
+			run_fastboot erase userdata
+		fi
 		fastboot_flash_image userdata &&
 		([ ! -e out/target/product/$DEVICE/boot.img ] ||
 		fastboot_flash_image boot) &&
